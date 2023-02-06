@@ -22,5 +22,5 @@ def transaction_completed(request, pk, result):
     transaction = Transaction.objects.get(pk=pk)
     transaction.result = result
     transaction.save()
-    callback = transaction.callback + "/" + str(result)
+    callback = transaction.callback + "/" + str(pk) + "/" + str(result)
     return redirect(callback)
